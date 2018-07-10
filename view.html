@@ -1,8 +1,85 @@
-<html>
+<html ng-app="Task1">
 <head>
-    <title></title>
+    <meta charset="utf-8">
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+
+    <title>Task 1</title>
 </head>
+ 
 <body>
-    <h1>Hello Hamza! Let's start angular </h1>
+  <div ng-controller="MyFirstController">
+        Is Dynamic Operator:  <input type="checkbox" ng-model="myVar">
+     
+     <div id="task1">
+            Enter first number:
+            <input type="number" ng-model="num1" ng-init="num1=0"/> 
+
+            Enter second number:
+            <input type="number" ng-model="num2" ng-init="num2=0"/>
+           
+            Answer: {{ num1 * num2 }}
+
+
+     </div>
+
+
+
+    <div id="task2" ng-show="myVar">
+   
+      Enter first number:
+      <input type="number" ng-model="num1" ng-init="num1=0"/>
+      Choose operation: 
+      <select ng-model="operator">
+            <option>+</option>
+            <option>*</option>
+            <option>-</option>
+            <option>/</option>
+         </select>
+
+      Enter second number:
+      <input type="number" ng-model="num2" ng-init="num2=0"/>
+     
+      Result: {{ result() }}
+        </div>
+
+
+       <div class="container">
+        <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Employee ID</th>
+                    <th scope="col">Employee Name</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Joining Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                        <tr ng-repeat="x in records">
+                                <td>{{ x.emp_id }}</td>
+                                <td>{{ x.emp_name }}</td>
+                                <td>{{ x.emp_designation }}</td>
+                                <td>{{ x.emp_email }}</td>
+                                <td>{{ x.emp_doj | date: 'M/d/yy' }}</td>         
+                              </tr>
+
+                </tbody>
+              </table>
+
+
+              </div>
+
+
+
+
+
+
+
+  </div>
 </body>
 </html>
